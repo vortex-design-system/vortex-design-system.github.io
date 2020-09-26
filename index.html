@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Document sans nom</title>
+    <style>
+      html {
+        background: linear-gradient(
+          to bottom right,
+          #1abc9c,
+          #2980b9,
+          #e74c3c,
+          #2c3e50
+        );
+        background-size: 400%;
+        height: 100%;
+        animation: bg 1s alternate infinite;
+        transform: rotateY(180deg);
+      }
+      @keyframes bg {
+        0% {
+          background-position: 0%;
+        }
+        100% {
+          background-position: 100%;
+        }
+      }
+      h1,
+      h2 {
+        color: white;
+      }
+      ul > li {
+        list-style: none;
+        border: 2px solid black;
+        width: 100px;
+        padding: 5px;
+        margin-bottom: 5px;
+        background: white;
+        cursor: wait;
+      }
+      ul > li:hover {
+        transform: scale(1.1);
+        background: black;
+        color: white;
+      }
+      ol {
+        border: 5px solid #f1c40f;
+        background: linear-gradient(to left, #9b59b6, #e67e22);
+        transition: transform 3s;
+      }
+      ol:hover {
+        transform: translateX(-100%);
+      }
+      .ma-classe {
+        text-decoration: underline;
+      }
+      button {
+        width: 200px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 50px;
+        margin: 50px;
+        border-radius: 90px;
+        outline: none !important;
+        border: 10px solid red;
+        transition: transform 1s;
+      }
+      button:focus {
+        transform: translateX(-100vw);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Ceci est un titre</h1>
+    <h2>Ceci est un sous-titre</h2>
+    <p>Allo</p>
+    <ul>
+      <li onclick="popup()">Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+    </ul>
+    <ol>
+      <li><b>Bold 1</b></li>
+      <li><b>Bold 2</b></li>
+      <li><b>Bold 3</b></li>
+      <li><b>Bold 4</b></li>
+    </ol>
+    <ol>
+      <li class="ma-classe">Souligné 1</li>
+      <li class="ma-classe">Souligné 2</li>
+    </ol>
+    <button type="button" name="button">Mon bouton</button>
+  </body>
+  <script type="text/javascript">
+    function popup() {
+      if (confirm("Test")) {
+        popup();
+      }
+    }
+    popup();
+    let i = 0;
+    setInterval(() => {
+      const elem = document.createElement("h1");
+      elem.innerText = `Allo ${i++}`;
+      document.body.append(elem);
+    }, 1000);
+  </script>
+</html>
